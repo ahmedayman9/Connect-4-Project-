@@ -10,12 +10,12 @@
 </h1>
 
 ## Team members
-- [Nouran Alaa](https://github.com/Nouran-Alaa)
-- [Ahmed Ayman](https://github.com/ahmedayman9)
-- [Hala Alaa](https://github.com/halaalaa68)
-- [Nihal Khaled]()
-- [mariem Tarek]()
-- [Mona Khaled]()
+- [Ahmed Ayman](https://github.com/ahmedayman9)  BN: 3
+- [mariem Tarek]()  BN: 53
+- [Mona Khaled]()  BN: 60
+- [Nihal Khaled]()  BN: 64
+- [Nouran Alaa](https://github.com/Nouran-Alaa)  BN: 65
+- [Hala Alaa](https://github.com/halaalaa68)  BN: 67
 
 
 
