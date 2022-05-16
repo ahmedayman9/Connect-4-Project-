@@ -11,9 +11,9 @@
 
 ## Team members
 - [Ahmed Ayman](https://github.com/ahmedayman9)  BN: 3
-- [mariem Tarek]()  BN: 53
-- [Mona Khaled]()  BN: 60
-- [Nihal Khaled]()  BN: 64
+- [mariem Tarek](https://github.com/MariamTarek22)  BN: 53
+- [Mona Khaled](https://github.com/mona690)  BN: 60
+- [Nihal Khaled](https://github.com/nihal599)  BN: 64
 - [Nouran Alaa](https://github.com/Nouran-Alaa)  BN: 65
 - [Hala Alaa](https://github.com/halaalaa68)  BN: 67
 
