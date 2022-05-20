@@ -292,3 +292,83 @@ void startingScreen()
         Delay100ms(5);
     }
 }
+
+// take turn for the Kit player and PIECES can be X or O
+int takeTurn(char *board, int player, const char *PIECES)
+{
+		int g;
+    cols = 0;
+	
+    while (1)
+    {
+
+			SW1 = GPIO_PORTF_DATA_R & 0x10; // read PF4 into SW1
+			SW2 = GPIO_PORTF_DATA_R & 0x01; // read PF4 into SW2
+
+			Nokia5110_SetCursorChar(cols, 0, PIECES[player]);
+			g = cols == 0 ? 6 : cols - 1;
+			Nokia5110_SetCursorChar(g, 0, board[g]);            // momken nst5dm setcursor b3dha out char
+
+
+			if (flag)
+			{
+				
+				UARTB_OutChar(cols + 1 + '0');			//momken ashelha
+				flag=0;
+				return changeBoard(board, player, PIECES, cols);
+			}
+						
+    }
+   
+}
+
+int takeTurnAI(char *board, int player, const char *PIECES)
+{
+	int col ; 
+	int v=0;
+
+	for(i=0;i<BOARD_COLS;i++)
+	{
+		if(hasEmptyCol(board,i))
+		{
+			v+=1;
+		}
+	}
+	
+	while(v>0){
+
+		if(fourth(board))
+		{
+			return changeBoard(board , player , PIECES , avoid );
+		}
+		else{
+			col=rand()%BOARD_COLS; //func el random
+			if(hasEmptyCol(board,col))
+			{
+				return changeBoard(board, player, PIECES, col); 
+			}
+  	}
+	}
+return 0;	
+}
+
+int takeTurnRemote(char *board, int player, const char *PIECES) //x o
+{
+
+    int col = 0;
+    col = UARTB_InChar(); // bkhod el data elli f reg el data fl uart .. arkam in asscci
+    col = col - 1 - '0';  // col -1 3shan ana array mn 0 .... -'0' 3shan a7wl mn char to intg
+		col = col%7;
+	
+int hasEmptyCol(char *board, int col)       // bymshi mn ta7t l fo2 fi nfs el col y-check 3la 7eta fadya
+{
+    int row;
+    for (row = BOARD_ROWS - 1; row >= 0; row--)
+    {
+        if (board[BOARD_COLS * row + col] == ' ')
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
