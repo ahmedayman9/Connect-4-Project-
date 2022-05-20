@@ -359,7 +359,10 @@ int takeTurnRemote(char *board, int player, const char *PIECES) //x o
     col = UARTB_InChar(); // bkhod el data elli f reg el data fl uart .. arkam in asscci
     col = col - 1 - '0';  // col -1 3shan ana array mn 0 .... -'0' 3shan a7wl mn char to intg
 		col = col%7;
-	
+   
+    return changeBoard(board, player, PIECES, col); // 1 y3ni 7atetha successfully , 0 yb2a el col malyan w error
+}
+
 int hasEmptyCol(char *board, int col)       // bymshi mn ta7t l fo2 fi nfs el col y-check 3la 7eta fadya
 {
     int row;
