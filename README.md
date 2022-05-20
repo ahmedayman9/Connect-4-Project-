@@ -98,8 +98,6 @@ This is a link for this video on YOUTUBE: <br />
 * * *
 
 ## Project Youtube Vedio :
-
-* Make it responsive
 * https://youtu.be/oHzR5RDZKI8
 * * *
 
