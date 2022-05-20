@@ -44,11 +44,11 @@ The playing board is a `4x4` square. <br /> <br />
 
 ## Rules :
 
-* Each player takes a turn placing his character `X or O` into one of the nine squares.
+* Each player takes a turn placing his character `X` into one of the 42 squares.
 * A player cannot place his symbol in a square that is already occupied by a symbol.
 * The game ends when a player creates a winning combination of his symbols or when there are no empty squares remaining.
 * Winning combination is defined as Four horizontally adjacent, Four vertically adjacent, or Four diagonally adjacent symbols.
-* If neither player creates a winning combination when all Sixteen squares are occupied, the game is a draw, often referred to as a `cat game`.
+* If neither player creates a winning combination when all 42 squares are occupied, the game is a draw, often referred to as a `cat game`.
 
 * * *
 
@@ -85,7 +85,7 @@ The playing board is a `4x4` square. <br /> <br />
 ## Future Development :
 
 * Make it responsive
-* Develop A.I. (player vs. computer) to make the computer more intelligance.
+* Improve A.I. (player vs. computer) to make the computer more intelligent.
 
 * * *
 
@@ -93,12 +93,9 @@ The playing board is a `4x4` square. <br /> <br />
 
 This is a video for testing the Project: <br />
 
-This is a link for this video on YOUTUBE: <br />
+This is a link for this video on YOUTUBE: <br />  https://youtu.be/oHzR5RDZKI8
 
-* * *
 
-## Project Youtube Video :
-* https://youtu.be/oHzR5RDZKI8
 * * *
 
 * ## Project References: 
