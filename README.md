@@ -10,12 +10,12 @@
 </h1>
 
 ## Team members
-- [Ahmed Ayman](https://github.com/ahmedayman9)  BN: 3
-- [mariem Tarek](https://github.com/MariamTarek22)  BN: 53
-- [Mona Khaled](https://github.com/mona690)  BN: 60
-- [Nihal Khaled](https://github.com/nihal599)  BN: 64
-- [Nouran Alaa](https://github.com/Nouran-Alaa)  BN: 65
-- [Hala Alaa](https://github.com/halaalaa68)  BN: 67
+- [Ahmed Ayman AbdElhakeem](https://github.com/ahmedayman9)  BN: 3
+- [mariem Tarek AbdElghany ](https://github.com/MariamTarek22)  BN: 53
+- [Mona Khaled AbdElghany](https://github.com/mona690)  BN: 60
+- [Nihal Khaled Mohamed](https://github.com/nihal599)  BN: 64
+- [Nouran Alaa Hassan](https://github.com/Nouran-Alaa)  BN: 65
+- [Hala Alaa Eldin Fouad](https://github.com/halaalaa68)  BN: 67
 
 
 
@@ -33,6 +33,11 @@ The playing board is a `4x4` square. <br /> <br />
 
 ## How to play it :
 
+1) Open the emulator `Keil
+2) Click `Depug`
+3) Choose either P1 Vs P2 OR P1 Vs AI.
+4) You should put on the switches to select the position.
+5) Use tactics to win by filling four adjacent symbols in the grid.
 
 
 * * *
@@ -52,32 +57,35 @@ The playing board is a `4x4` square. <br /> <br />
 
 ### You can win by filling:
 1- `X` or `O` through a whole row <br /><br />
-![Rows]() <br />
+![Rows](https://github.com/Nouran-Alaa/Tic-Tac-Toe_MP_Project/blob/master/Media/Rows.gif) <br />
 
 2- `X` or `O` through a whole column <br /><br />
-![Columns]() <br />
+![Columns](https://github.com/Nouran-Alaa/Tic-Tac-Toe_MP_Project/blob/master/Media/Columns.gif) <br />
 
 3- `X` or `O` through a diagonal <br /><br />
-![Diagonals]) 
+![Diagonals](https://github.com/Nouran-Alaa/Tic-Tac-Toe_MP_Project/blob/master/Media/Diagonals.gif) 
 
 * * *
 
 
-## Logic :
-
-
-
-* * *
 
 ## Component We Use :
 
-
-
+* Driver for GPIO PortF
+* male to male Wires 
+* External Led
+* External Switches 
+* interrupt
+* Bread Bord 
+* Nokia5110 Blue Screen
+* Tiva C Kit
+* UART
+ 
 * * *
 ## Future Development :
 
 * Make it responsive
-* Add A.I. (player vs. computer)
+* Develop A.I. (player vs. computer) to make the computer more intelligance.
 
 * * *
 
