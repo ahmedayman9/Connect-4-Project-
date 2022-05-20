@@ -497,3 +497,89 @@ int changeBoard(char *board, int player, const char *PIECES, int col)
     return 0; // da m3nah en kol el col malyan fa mynf3sh y7ot feyh
 }
 
+int checkWin(char *board)
+{
+    return (horizontalCheck(board) || verticalCheck(board) || diagonalCheck(board));
+}
+
+int checkFour(char *board, int a, int b, int c, int d)
+{
+    return (board[a] == board[b] && board[b] == board[c] && board[c] == board[d] && board[a] != ' ');
+			
+}
+
+int horizontalCheck(char *board)
+{
+    int row, col, idx;
+    const int WIDTH = 1;
+
+    for (row = 0; row < BOARD_ROWS; row++)  //6 7
+        { // mn zero to 6
+        for (col = 0; col < BOARD_COLS - 3; col++) 
+        {                                 // mn 0 to 4 , l2n el func nfsaha bt inc bl width 3 cols kman
+            idx = BOARD_COLS * row + col; // bmshi row a check 3la kol el cols b3dha adkhol 3l row el b3deh w hakza
+            if (checkFour(board, idx, idx + WIDTH, idx + WIDTH * 2, idx + WIDTH * 3))
+            {
+                return 1; // check 3l kol 4 gamb b3d l7d col 4
+            }
+        }
+    }
+    return 0; // mafesh 4 horz gamb b3d
+}
+
+int verticalCheck(char *board)
+{
+    int row, col, idx;
+    const int HEIGHT = 7;
+
+    for (row = 0; row < BOARD_ROWS - 3; row++)
+    { // mn 0 to 4 , l2n el func nfsaha bt inc bl width 3 rows kman
+        for (col = 0; col < BOARD_COLS; col++)
+        {                                 // mn zero to 6
+            idx = BOARD_COLS * row + col; // bmshi row a check col mo3yn b3dha a3ml inc b 7 3shan adkhol fl row elli b3deh f nfs el saf
+            if (checkFour(board, idx, idx + HEIGHT, idx + HEIGHT * 2, idx + HEIGHT * 3))
+            {
+                return 1; // check 3l kol element fl row w 3l 3 eli t7teh nfs el col
+            }
+        }
+    }
+    return 0; // mafesh 4 vert
+}
+
+int diagonalCheck(char *board)
+{
+    int row, col, idx, count = 0;
+    const int DIAG_RGT = 6, DIAG_LFT = 8;
+    //  el far2 ben el element w east-south = 8, west-south = 6
+    // 4 + 6 = 10 .... 4 + 8 = 12
+
+    //            4
+    //       10      12
+
+    for (row = 0; row < BOARD_ROWS - 3; row++)
+    {
+        for (col = 0; col < BOARD_COLS; col++)
+        {
+            idx = BOARD_COLS * row + col;
+            if ((count <= 3 && checkFour(board, idx, idx + DIAG_LFT, idx + DIAG_LFT * 2, idx + DIAG_LFT * 3)) || (count >= 3 && checkFour(board, idx, idx + DIAG_RGT, idx + DIAG_RGT * 2, idx + DIAG_RGT * 3)))
+            {
+                return 1;
+            }
+            count++;
+        }
+        count = 0;
+    }
+    return 0;
+}
+// el DIAG_LFT a5rha l7d col 3 ... el DIAG_RGT btbda2 tzhar mn col 3
+//            *
+//            *
+//   0  1  2  3  4  5  6
+
+//   0  1  2  3  4  5  6    0
+//   7  8  9  10 11 12 13   1
+//   21 22 23 24 25 26 27   3
+//   38 29 30 31 32 33 34   4
+//   35 36 37 38 39 40 41   5
+//               46
+
