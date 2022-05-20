@@ -439,3 +439,58 @@ void Delay100ms(unsigned long count)
         count--;
     }
 }
+
+int selectMode()
+{ // here is selecting if the mode is P1 VS AI or PI vs P2
+    Nokia5110_SetCursor(0, 0);
+    Nokia5110_OutString("Select");
+    Nokia5110_SetCursor(7, 0);
+    Nokia5110_OutString("mode");
+    Nokia5110_SetCursor(3, 2);
+    Nokia5110_OutString("P1 VS AI");
+    Nokia5110_SetCursor(3, 4);
+    Nokia5110_OutString("P1 VS P2");
+    Nokia5110_SetCursor(0, 2);
+    Nokia5110_OutString("->");
+
+		while(1){
+		SW1 = GPIO_PORTF_DATA_R & 0x10; // read PF4 into SW1  pin no.4  0001 0000
+		
+		SW2 = GPIO_PORTF_DATA_R & 0x01; // read PF4 into SW2
+		if (flag)
+		{
+			flag2 =1;
+			flag =0;
+			return k;
+		}
+	}
+    
+}
+
+void printBoard(char *board)
+{
+    int row, col;
+    Nokia5110_ClearBuffer();
+    for (row = 0; row < BOARD_ROWS; row++)
+    { //row =1
+        for (col = 0; col < BOARD_COLS; col++)
+        {                                                                     // col = 0
+            Nokia5110_SetCursorChar(col, row, board[BOARD_COLS * row + col]); //board[7x1 + 0] ,.. el row el tany bybda2 mn 7
+        }
+    }
+}
+
+int changeBoard(char *board, int player, const char *PIECES, int col)
+{
+    int row;
+    for (row = BOARD_ROWS - 1; row >= 0; row--)
+    { // b3ml check fl chosen col mn ta7t l fo2 3shan a7ot f awl mkan empty al2eh
+        if (board[BOARD_COLS * row + col] == ' ')
+        {
+            board[BOARD_COLS * row + col] = PIECES[player]; // b7ot el player fl row da
+            return 1;
+        }
+    }
+    return 0; // da m3nah en kol el col malyan fa mynf3sh y7ot feyh
+}
+
