@@ -57,13 +57,13 @@ The playing board is a `4x4` square. <br /> <br />
 
 ### You can win by filling:
 1- `X` or `O` through a whole row <br /><br />
-![Rows](https://github.com/Nouran-Alaa/Tic-Tac-Toe_MP_Project/blob/master/Media/Rows.gif) <br />
+![Rows](https://github.com/ahmedayman9/Connect-4-Project-/blob/main/media/row.gif) <br />
 
 2- `X` or `O` through a whole column <br /><br />
-![Columns](https://github.com/Nouran-Alaa/Tic-Tac-Toe_MP_Project/blob/master/Media/Columns.gif) <br />
+![Columns](https://github.com/ahmedayman9/Connect-4-Project-/blob/main/media/col.gif) <br />
 
 3- `X` or `O` through a diagonal <br /><br />
-![Diagonals](https://github.com/Nouran-Alaa/Tic-Tac-Toe_MP_Project/blob/master/Media/Diagonals.gif) 
+![Diagonals](https://github.com/ahmedayman9/Connect-4-Project-/blob/main/media/diagonal.gif) 
 
 * * *
 
