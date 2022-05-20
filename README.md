@@ -97,7 +97,7 @@ This is a link for this video on YOUTUBE: <br />
 
 * * *
 
-## Project Youtube Vedio :
+## Project Youtube Video :
 * https://youtu.be/oHzR5RDZKI8
 * * *
 
