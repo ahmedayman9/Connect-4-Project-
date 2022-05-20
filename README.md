@@ -56,10 +56,10 @@ The playing board is a `4x4` square. <br /> <br />
 ## Wining Conditions
 
 ### You can win by filling:
-1- `X` or `O` through a whole row <br /><br />
+1- `X` or `O` through a row <br /><br />
 ![Rows](https://github.com/ahmedayman9/Connect-4-Project-/blob/main/media/row.gif) <br />
 
-2- `X` or `O` through a whole column <br /><br />
+2- `X` or `O` through a column <br /><br />
 ![Columns](https://github.com/ahmedayman9/Connect-4-Project-/blob/main/media/col.gif) <br />
 
 3- `X` or `O` through a diagonal <br /><br />
