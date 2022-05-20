@@ -124,6 +124,148 @@ int turn = 0, done = 0;
 const char *PIECES = "xo";                  //array 2 values PIECES[0] = X, PIECES[1] = O
 char board1[(BOARD_ROWS * BOARD_COLS) + 1]; // board1[6x7 + 1] = [43] .. leh msh 42??? 8aleban board[42] = '/0' bma eno array of char
 
+int main(void)
+{
+    //TExaS_Init(SSI0_Real_Nokia5110_Scope);  // set system clock to 80 MHz
+    // initialization goes here
+    int mode,w;
+
+    PortF_Init(); // Call initialization of port PF4, PF3, PF2, PF1, PF0
+		EdgeCounter_Init();
+    for (i = 0; i < BOARD_COLS * BOARD_ROWS + 1; i++)  // ngrb nshel el +1
+    {
+        board1[i] = ' ';
+        //input[i]=' ';
+    }
+    //  kol elli gwa array el board space "fady"
+    //   0  1  2  3  4  5  6
+    //                          0
+    //                          1
+    //                          2
+    //                          3
+    //                          4
+    //                          5
+
+    Nokia5110_Init();
+    UARTB_init();
+    Nokia5110_Clear();
+    startingScreen();
+    mode = selectMode(); // mode 0 or 2
+    Nokia5110_Clear();
+    if (mode) // if mode = 1 .. p1 vs p2 .. UART
+    { 
+
+        printBoard(board1);
+        for (turn = 0; turn < (BOARD_ROWS * BOARD_COLS) && !done; turn++)  
+        { // from 0 to 42 and the game is not done yet (no winner)
+
+		do
+		{
+		    printBoard(board1);
+		} while (!takeTurn(board1, (turn) % 2, PIECES));
+		done = checkWin(board1);
+		turn++;
+		if (done)
+		    break;
+		do
+		{
+		    printBoard(board1);
+		} while (!takeTurnRemote(board1, (turn) % 2, PIECES));
+		done = checkWin(board1);
+            
+        }
+        printBoard(board1);
+        if (turn == BOARD_ROWS * BOARD_COLS && !done)
+        { // grid is full but there's no winner
+            Nokia5110_OutString("It's a tie!");
+        }
+        else
+        { // done = 1, there's a winner
+            turn--;                 // bsbb enna zawdna el turn abl el check of winner (done)
+            Nokia5110_Clear();
+            Nokia5110_SetCursor(1, 1);
+            Nokia5110_OutString("Player");
+            Nokia5110_SetCursor(8, 1);
+            Nokia5110_OutString(turn % 2 == 0 ? "X" : "O");
+            Nokia5110_SetCursor(3, 2);
+            Nokia5110_OutString("wins!");
+            Nokia5110_SetCursor(1, 4);
+            Nokia5110_OutString("GAME OVER");
+					
+		for (w = 0; w < 7; w++)
+		{
+			GPIO_PORTF_DATA_R |= (1<<1)| (1<<3);
+			Delay100ms(5);
+			GPIO_PORTF_DATA_R &= ~((1<<1)| (1<<3));
+
+			GPIO_PORTF_DATA_R |= (1<<2);
+			Delay100ms(5);
+
+			GPIO_PORTF_DATA_R &= ~(1<<2);
+			Delay100ms(5);
+		}
+        }
+    }
+    else
+    {
+        // playes vs ai
+        printBoard(board1);
+        for (turn = 0; turn < (BOARD_ROWS * BOARD_COLS) && !done; turn++)
+        { // 42
+           
+	do
+            {
+                printBoard(board1);
+            } while (!takeTurn(board1, (turn) % 2, PIECES));
+            done = checkWin(board1);
+            turn++;
+            if (done)
+                break;
+	 do
+            {
+                printBoard(board1);
+            } while (!takeTurnAI(board1, (turn) % 2, PIECES));
+            
+            done = checkWin(board1);
+        }
+        printBoard(board1);
+        if (turn == BOARD_ROWS * BOARD_COLS && !done)
+        {
+            Nokia5110_OutString("It's a tie!");
+        }
+        else
+        {
+            turn--;
+            Nokia5110_Clear();
+            Nokia5110_SetCursor(1, 1);
+            Nokia5110_OutString("Player");
+            Nokia5110_SetCursor(8, 1);
+            Nokia5110_OutString(turn % 2 == 0 ? "X" : "O");
+            Nokia5110_SetCursor(3, 2);
+            Nokia5110_OutString("wins!");
+            Nokia5110_SetCursor(1, 4);
+            Nokia5110_OutString("GAME OVER");
+					
+	for (w = 0; w < 7; w++)
+	{
+		GPIO_PORTF_DATA_R |= (1<<1)| (1<<3);
+		Delay100ms(5);
+		GPIO_PORTF_DATA_R &= ~((1<<1)| (1<<3));
+
+		GPIO_PORTF_DATA_R |= (1<<2);
+		Delay100ms(5);
+
+		GPIO_PORTF_DATA_R &= ~(1<<2);
+		Delay100ms(5);
+	}
+        }
+    }
+	while(1){
+		WaitForInterrupt();
+	}
+		
+}
+
 
 void startingScreen()
 {
