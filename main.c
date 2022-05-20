@@ -130,7 +130,7 @@ void startingScreen()
     int w;
     Nokia5110_SetCursor(0, 0);
     Nokia5110_ClearBuffer();
-    Nokia5110_PrintBMP(10, 35, logo1, 0
+    Nokia5110_PrintBMP(10, 35, logo1, 0)
     Nokia5110_DisplayBuffer();
     Nokia5110_SetCursor(0, 5);
     Nokia5110_OutString("Welcome :D!");
