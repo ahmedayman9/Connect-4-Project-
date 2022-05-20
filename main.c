@@ -583,3 +583,61 @@ int diagonalCheck(char *board)
 //   35 36 37 38 39 40 41   5
 //               46
 
+int checkThree(char *board, int a, int b, int c, int d){
+    		return (board[a] == board[b] && board[b] == board[c] && board[a] != ' ' && board[d]==' ' && (board[d+7]!=' ' || (d+7 < 41)));
+}
+
+int fourth(char *board)
+{
+    if(horiCheck(board)||vertiCheck(board))
+	{
+		return 1;
+	} 
+	else{
+		return 0;
+	}
+		
+}
+
+
+int horiCheck(char *board)
+{
+    int row, col, idx;
+    const int WIDTH = 1;
+
+    for (row = 0; row < BOARD_ROWS; row++)  //6 7
+        { // mn zero to 6
+        for (col = 0; col < BOARD_COLS - 3; col++) 
+        {                                 // mn 0 to 4 , l2n el func nfsaha bt inc bl width 3 cols kman
+            idx = BOARD_COLS * row + col; // bmshi row a check 3la kol el cols b3dha adkhol 3l row el b3deh w hakza
+            if (checkThree(board, idx, idx + WIDTH, idx + WIDTH * 2, idx + WIDTH * 3))
+            {
+							 avoid = col+3;
+                return 1; // check 3l kol 4 gamb b3d l7d col 4
+            }
+        }
+    }
+    return 0; // mafesh 4 horz gamb b3d
+}
+
+int vertiCheck(char *board)
+{
+    int row, col, idx;
+    const int HEIGHT = 7;
+
+    for (row = 0; row < BOARD_ROWS - 3; row++)
+    { // mn 0 to 4 , l2n el func nfsaha bt inc bl width 3 rows kman
+        for (col = 0; col < BOARD_COLS; col++)
+        {                                 // mn zero to 6
+            idx = BOARD_COLS * row + col; // bmshi row a check col mo3yn b3dha a3ml inc b 7 3shan adkhol fl row elli b3deh f nfs el saf
+            if (checkThree(board, idx, idx + HEIGHT, idx + HEIGHT * 2, idx + HEIGHT * 3))
+            {
+								avoid = col;
+                return 1; // check 3l kol element fl row w 3l 3 eli t7teh nfs el col
+            }
+        }
+    }
+    return 0; // mafesh 4 vert
+}
+
+
