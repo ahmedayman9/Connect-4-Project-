@@ -9,6 +9,7 @@
   CONNECT 4 Game Implementation
 </h1>
 
+* * *
 
 ## This project aims to:
 * Create a CONNECT 4 Game that has the functionality of multiplayer CONNECT 4 Game.
@@ -44,7 +45,7 @@ The playing board is a `6x7` square. <br /> <br />
 * * *
 
 
-## Wining Conditions
+## Winning Conditions:
 
 ### You can win by filling:
 1- `X` or `O` through a row <br /><br />
@@ -60,7 +61,7 @@ The playing board is a `6x7` square. <br /> <br />
 
 
 
-## Component We Use :
+## What We Use :
 
 * Driver for GPIO PortF
 * Male to male Wires 
@@ -84,7 +85,9 @@ The playing board is a `6x7` square. <br /> <br />
 
 This is a video for testing the Project: <br />
 
-This is a link for this video on YOUTUBE: <br />  https://youtu.be/oHzR5RDZKI8
+<h1 align="center">
+  This is a link for this video on YOUTUBE: <br />  https://youtu.be/oHzR5RDZKI8
+</h1>
 
 
 * * *
