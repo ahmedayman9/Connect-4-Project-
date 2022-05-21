@@ -61,7 +61,7 @@ The playing board is a `6x7` square. <br /> <br />
 
 
 
-## What We Use :
+## What We Used :
 
 * Driver for GPIO PortF
 * Male to male Wires 
@@ -85,9 +85,9 @@ The playing board is a `6x7` square. <br /> <br />
 
 This is a video for testing the Project: <br />
 
-<h1 align="center">
+<h3 align="center">
   This is a link for this video on YOUTUBE: <br />  https://youtu.be/oHzR5RDZKI8
-</h1>
+</h3>
 
 
 * * *
